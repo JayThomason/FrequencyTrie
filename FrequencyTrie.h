@@ -73,15 +73,6 @@ private:
    */
   void constructTree(string dictionaryFilename);
 
-  /* void insertWord(string word);
-   * Usage: insertWord("tree");
-   *
-   * Inserts the given word into the trie, incrementing
-   * frequencies for prefixes as the trie is descended
-   * and creating new nodes when necessary.
-   */
-  void insertWord(string word);
-
   /* void deleteNode(node *curr);
    * Usage: deleteNode(root);
    *
@@ -107,6 +98,15 @@ public:
    * Deallocates all memory used by the trie.
    */
   ~FrequencyTrie();
+
+  /* void insertWord(string word);
+   * Usage: insertWord("tree");
+   *
+   * Inserts the given word into the trie, incrementing
+   * frequencies for prefixes as the trie is descended
+   * and creating new nodes when necessary.
+   */
+  void insertWord(string word);
 
   /* unsigned short getCount(string Prefix);
    * Usage: unsigned short aWordCount = getCount("a");
