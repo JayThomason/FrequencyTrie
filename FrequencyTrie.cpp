@@ -17,15 +17,16 @@
 
 /* Constants */
 const char ROOT_CHAR = '_';
-const char START_CHAR = 'a';
 
 
 /* Function Implementations */
-FrequencyTrie::FrequencyTrie() {
+FrequencyTrie::FrequencyTrie(char startChar): START_CHAR(startChar) {
   root = createNode(ROOT_CHAR);
 }
 
-FrequencyTrie::FrequencyTrie(string dictionaryFilename) {
+
+FrequencyTrie::FrequencyTrie(char startChar, 
+    string dictionaryFilename): START_CHAR(startChar) {
   root = createNode(ROOT_CHAR);
   constructTree(dictionaryFilename);
 }

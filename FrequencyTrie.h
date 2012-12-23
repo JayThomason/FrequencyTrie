@@ -33,6 +33,9 @@ using namespace std;
 class FrequencyTrie
 {
 private:
+  /* Constant char representing starting letter of alphabet. */
+  const char START_CHAR;
+
   /* Struct: node
    * Usage: node *myNode = new node;
    *
@@ -81,24 +84,30 @@ private:
    */
   void deleteNode(node *curr);
 
+
+
   node *findNextNode(node *curr, string prefix, unsigned short letterCounter);
 
 public:
-  /* Constructor: FrequencyTrie()
-   * Usage: FrequencyTrie trie();
+  /* Constructor: FrequencyTrie(char startChar)
+   * Usage: FrequencyTrie trie('a');
    *
    * Constructs an empty FrequencyTrie. It must be manually
-   * populated with insertWord.
+   * populated with insertWord. Since the trie is case-sensitive,
+   * you must manually pass in the starting character of your
+   * alphabet (presumably 'a' or 'A', for an all lower-case or 
+   * all upper-case dictionary).
    */
-  FrequencyTrie();
+  FrequencyTrie(char startChar);
 
   /* Constructor: FrequencyTrie(string dictionaryFilename)
    * Usage: FrequencyTrie trie("scrabbleDictionary.txt");
    *
    * Constructs a new FrequencyTrie from the dictionary
-   * text file supplied.
+   * text file supplied. You must also pass in the starting
+   * character of your alphabet (either 'a' or 'A').
    */
-  FrequencyTrie(string dictionaryFilename);
+  FrequencyTrie(char startChar, string dictionaryFilename);
 
   /* Destructor: ~FrequencyTrie()
    * Usage: (implicit)
