@@ -84,6 +84,14 @@ private:
   node *findNextNode(node *curr, string prefix, unsigned short letterCounter);
 
 public:
+  /* Constructor: FrequencyTrie()
+   * Usage: FrequencyTrie trie();
+   *
+   * Constructs an empty FrequencyTrie. It must be manually
+   * populated with insertWord.
+   */
+  FrequencyTrie();
+
   /* Constructor: FrequencyTrie(string dictionaryFilename)
    * Usage: FrequencyTrie trie("scrabbleDictionary.txt");
    *

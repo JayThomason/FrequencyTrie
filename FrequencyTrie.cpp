@@ -21,6 +21,10 @@ const char START_CHAR = 'a';
 
 
 /* Function Implementations */
+FrequencyTrie::FrequencyTrie() {
+  root = createNode(ROOT_CHAR);
+}
+
 FrequencyTrie::FrequencyTrie(string dictionaryFilename) {
   root = createNode(ROOT_CHAR);
   constructTree(dictionaryFilename);
