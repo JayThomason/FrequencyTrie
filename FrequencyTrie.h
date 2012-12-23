@@ -105,6 +105,14 @@ public:
    * Deallocates all memory used by the trie.
    */
   ~FrequencyTrie();
+
+  /* unsigned short getCount(string Prefix);
+   * Usage: unsigned short aWordCount = getCount("a");
+   *
+   * Returns the number of words which begin a
+   * specific prefix.
+   */
+  unsigned short getCount(string prefix);
 };
 
 #endif

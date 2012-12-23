@@ -1,3 +1,12 @@
+/**************************************************************
+ * File: FrequencyTrie.cpp
+ * Author: Jay Thomason (jayt92@stanford.edu)
+ *
+ * This file contains the implementation of the FrequencyTrie
+ * class defined in FrequencyTrie.h.
+ */
+
+
 /* Dependencies */
 #include "FrequencyTrie.h"
 #include <iostream>
@@ -10,6 +19,7 @@
 const char ROOT_CHAR = '_';
 const char START_CHAR = 'a';
 
+
 /* Function Implementations */
 FrequencyTrie::FrequencyTrie(string dictionaryFilename) {
   root = createNode(ROOT_CHAR);
@@ -21,6 +31,7 @@ FrequencyTrie::~FrequencyTrie() {
   deleteNode(root);
 }
 
+
 void FrequencyTrie::deleteNode(node *curr) {
   for (size_t i = 0; i < NUM_LETTERS; ++i) {
     if (curr->successors[i] != NULL) {
@@ -31,6 +42,7 @@ void FrequencyTrie::deleteNode(node *curr) {
   return;
 }
 
+
 FrequencyTrie::node *FrequencyTrie::createNode(const char ch) {
   node *newNode = new node;
   newNode->ch = ch; 
@@ -39,6 +51,7 @@ FrequencyTrie::node *FrequencyTrie::createNode(const char ch) {
   memset(&(newNode->successors), 0x0, NUM_LETTERS);
   return newNode;
 }
+
 
 void FrequencyTrie::constructTree(string dictionaryFilename) {
   ifstream fileStream;
@@ -49,6 +62,7 @@ void FrequencyTrie::constructTree(string dictionaryFilename) {
   }
   fileStream.close();
 }
+
 
 void FrequencyTrie::insertWord(string word) {
   node *curr = root;
@@ -66,4 +80,20 @@ void FrequencyTrie::insertWord(string word) {
   }
   ++curr->count;
   curr->isWord = true;
+}
+
+
+unsigned short FrequencyTrie::getCount(string prefix) {
+  node *curr = root;
+  unsigned short letterCounter = 0;
+  while (letterCounter < prefix.length()) {
+    unsigned short index = (unsigned short)(prefix[letterCounter] - START_CHAR);
+    node *next = curr->successors[index];
+    if (next == NULL) {
+      return 0;
+    }
+    curr = next;
+    ++letterCounter;
+  }
+  return curr->count;
 }
