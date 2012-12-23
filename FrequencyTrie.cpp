@@ -18,9 +18,18 @@ FrequencyTrie::FrequencyTrie(string dictionaryFilename) {
 
 
 FrequencyTrie::~FrequencyTrie() {
-  delete root;
+  deleteNode(root);
 }
 
+void FrequencyTrie::deleteNode(node *curr) {
+  for (size_t i = 0; i < NUM_LETTERS; ++i) {
+    if (curr->successors[i] != NULL) {
+      deleteNode(curr->successors[i]);
+    }
+  }
+  delete curr;
+  return;
+}
 
 FrequencyTrie::node *FrequencyTrie::createNode(const char ch) {
   node *newNode = new node;

@@ -82,6 +82,14 @@ private:
    */
   void insertWord(string word);
 
+  /* void deleteNode(node *curr);
+   * Usage: deleteNode(root);
+   *
+   * Recursively deletes the sub-tree rooted at the supplied
+   * node.
+   */
+  void deleteNode(node *curr);
+
 public:
   /* Constructor: FrequencyTrie(string dictionaryFilename)
    * Usage: FrequencyTrie trie("scrabbleDictionary.txt");
