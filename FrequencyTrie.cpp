@@ -1,5 +1,5 @@
 /* Dependencies */
-#include "FrequencyPrefixTree.h"
+#include "FrequencyTrie.h"
 #include <iostream>
 #include <fstream>
 #include <string.h>
@@ -11,18 +11,18 @@ const char ROOT_CHAR = '_';
 const char START_CHAR = 'a';
 
 /* Function Implementations */
-FrequencyPrefixTree::FrequencyPrefixTree(string dictionaryFilename) {
+FrequencyTrie::FrequencyTrie(string dictionaryFilename) {
   root = createNode(ROOT_CHAR);
   constructTree(dictionaryFilename);
 }
 
 
-FrequencyPrefixTree::~FrequencyPrefixTree() {
+FrequencyTrie::~FrequencyTrie() {
   delete root;
 }
 
 
-FrequencyPrefixTree::node *FrequencyPrefixTree::createNode(const char ch) {
+FrequencyTrie::node *FrequencyTrie::createNode(const char ch) {
   node *newNode = new node;
   newNode->ch = ch; 
   newNode->count = 0;
@@ -31,7 +31,7 @@ FrequencyPrefixTree::node *FrequencyPrefixTree::createNode(const char ch) {
   return newNode;
 }
 
-void FrequencyPrefixTree::constructTree(string dictionaryFilename) {
+void FrequencyTrie::constructTree(string dictionaryFilename) {
   ifstream fileStream;
   fileStream.open(dictionaryFilename.c_str());
   string word;
@@ -41,7 +41,7 @@ void FrequencyPrefixTree::constructTree(string dictionaryFilename) {
   fileStream.close();
 }
 
-void FrequencyPrefixTree::insertWord(string word) {
+void FrequencyTrie::insertWord(string word) {
   node *curr = root;
   unsigned short letterCounter = 0;
   while (letterCounter < word.length()) {

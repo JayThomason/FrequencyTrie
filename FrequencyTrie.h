@@ -1,5 +1,5 @@
 /********************************************************** 
- * File: FrequencyPrefixTree.h
+ * File: FrequencyTrie.h
  * Author: Jay Thomason (jayt92@stanford.edu)
  *
  * Implementation of a simple trie, also known as a prefix
@@ -26,7 +26,7 @@ const size_t NUM_LETTERS = 26;
 /* Namespace */
 using namespace std;
 
-class FrequencyPrefixTree
+class FrequencyTrie
 {
   private:
     struct node {
@@ -41,8 +41,8 @@ class FrequencyPrefixTree
     void insertWord(string word);
 
   public:
-    FrequencyPrefixTree(string dictionaryFilename);
-    ~FrequencyPrefixTree();
+    FrequencyTrie(string dictionaryFilename);
+    ~FrequencyTrie();
 };
 
 #endif
