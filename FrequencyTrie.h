@@ -90,6 +90,8 @@ private:
    */
   void deleteNode(node *curr);
 
+  node *findNextNode(node *curr, string prefix, unsigned short letterCounter);
+
 public:
   /* Constructor: FrequencyTrie(string dictionaryFilename)
    * Usage: FrequencyTrie trie("scrabbleDictionary.txt");
@@ -113,6 +115,14 @@ public:
    * specific prefix.
    */
   unsigned short getCount(string prefix);
+
+  /* bool isWord(string word);
+   * Usage: if (trie.isWord("usage")) {
+   *
+   * Returns true if the word given resides within the 
+   * dictionary.
+   */
+  bool isWord(string word);
 };
 
 #endif

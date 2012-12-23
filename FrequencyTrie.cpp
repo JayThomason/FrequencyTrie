@@ -32,6 +32,7 @@ FrequencyTrie::~FrequencyTrie() {
 }
 
 
+
 void FrequencyTrie::deleteNode(node *curr) {
   for (size_t i = 0; i < NUM_LETTERS; ++i) {
     if (curr->successors[i] != NULL) {
@@ -87,8 +88,7 @@ unsigned short FrequencyTrie::getCount(string prefix) {
   node *curr = root;
   unsigned short letterCounter = 0;
   while (letterCounter < prefix.length()) {
-    unsigned short index = (unsigned short)(prefix[letterCounter] - START_CHAR);
-    node *next = curr->successors[index];
+    node *next = findNextNode(curr, prefix, letterCounter);
     if (next == NULL) {
       return 0;
     }
@@ -96,4 +96,25 @@ unsigned short FrequencyTrie::getCount(string prefix) {
     ++letterCounter;
   }
   return curr->count;
+}
+
+bool FrequencyTrie::isWord(string word) {
+  node *curr = root;
+  unsigned short letterCounter = 0;
+  while (letterCounter < word.length()) {
+    node *next = findNextNode(curr, word, letterCounter);
+    if (next == NULL) {
+      return false;
+    }
+    curr = next;
+    ++letterCounter;
+  }
+  return curr->isWord;
+}
+
+
+FrequencyTrie::node *FrequencyTrie::findNextNode(node *curr, string prefix,
+    unsigned short letterCounter) {
+  unsigned short index = (unsigned short)(prefix[letterCounter] - START_CHAR);
+  return curr->successors[index];
 }
