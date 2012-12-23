@@ -1,3 +1,18 @@
+/********************************************************** 
+ * File: FrequencyPrefixTree.h
+ * Author: Jay Thomason (jayt92@stanford.edu)
+ *
+ * Implementation of a simple trie, also known as a prefix
+ * tree. Upon construction, the tree is populated by a
+ * dictionary. In addition to storing the prefixes for each
+ * word in the dictionary, the frequency with which each
+ * prefix appears in the dictionary is also stored. For
+ * example, after constructing a tree from a dictionary 
+ * which contains two-thousand words beginning with the 
+ * prefix "ab", then calling tree.getFrequency("ab") will
+ * return 2000.
+ */
+
 #ifndef PREFIX_TREE_H
 #define PREFIX_TREE_H
 
