@@ -83,9 +83,14 @@ private:
    * node.
    */
   void deleteNode(node *curr);
-
-
-
+  
+  /* node *findNextNode(node *curr, string prefix, unsigned short letterCounter);
+   * Usage: node *next = findNextNode(curr, prefix, letterCounter);
+   *
+   * Returns the pointer to the next node within the array of
+   * successor nodes of the current node given the prefix and
+   * letter position within the prefix.
+   */
   node *findNextNode(node *curr, string prefix, unsigned short letterCounter);
 
 public:
